@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Contact form</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="form-container">
+      <form action="#">
+
+        <div class="name-input-container">
+          <fieldset>
+            <legend hidden>Name</legend>
+
+            <div class="first-name-input">
+              <label for="first-name">First Name <span>*</span> </label>
+              <input type="text" name="first-name" id="first-name"
+                autocomplete="first-name" required>
+              <span id="fnerror-msg">This field is required</span>
+            </div>
+
+            <div class="last-name-input">
+              <label for="last-name">last Name <span>*</span> </label>
+              <input type="text" name="last-name" id="last-name" autocomplete="last-name"
+                required>
+              <span id="lnerror-msg">This field is required</span>
+            </div>
+
+
+          </fieldset>
+        </div>
+
+        <div class="email-container">
+          <label for="email">Email <span>*</span> </label>
+          <input type="email" name="email" id="email" autocomplete="email" required>
+          <span id="eerror-msg">Please enter a valid email address</span>
+        </div>
+
+        <div class="query-type-input-container">
+          <fieldset>
+            <legend>Query Type <span>*</span></legend>
+            <div class="radio-btn-containers">
+              <div class="type-container">
+                <label for="general-equity">
+                  <input type="radio" name="query-type" id="general-equity" value="general-equity">
+                  <span>General Equity</span>
+                </label>
+              </div>
+  
+              <div class="type-container">
+                <label for="support-request">
+                  <input type="radio" name="query-type" id="support-request" value="support-request">
+                  <span>Support Request</span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <span id="qerror-msg">Please select a query type</span>
+        </div>
+
+        <div class="message-container">
+          <label for="message">Message <span>*</span></label>
+          <textarea name="message" id="message"></textarea>
+          <span id="merror-msg">This field is required</span>
+        </div>
+
+        <div class="checkbox-container">
+          <div class="checkbox-input">
+            <input type="checkbox" name="check" id="check">
+            <label for="check">I consent to being contacted by the team <span>*</span></label>
+          </div>
+          <span id="cerror-msg">To submit this form, please consent to being contacted</span>
+        </div>
+
+        <div class="btn-container">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+
+</html>
