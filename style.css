@@ -4,11 +4,28 @@
     box-sizing: border-box;
 }
 
+:root{
+    --green-200: hsl(148, 38%, 91%);
+    --green-600: hsl(169, 82%, 27%);
+    --red: hsl(0, 66%, 54%);
+    --white: hsl(0, 0%, 100%);
+    --grey-500: hsl(186, 15%, 59%);
+    --grey-900: hsl(187, 24%, 22%);
+}
+
+@font-face {
+    font-family: karla;
+    src: url(./assets/fonts/Karla-VariableFont_wght.ttf);
+}
 
 html,body{
     width: 100vw;
     height: 100%;
     overflow-x: hidden;
+    font-family: karla;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: var(--green-200);
 }
 
 main{
@@ -17,6 +34,157 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 24px 0px;
+}
+
+.form-container{
+    width: clamp(350px , 90% , 600px);
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.form-container h1{
+    color: var(--grey-900);
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+form > div:not(:last-child){
+    margin-bottom: 24px;
+}
+
+fieldset{
+    border: none;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+
+.input-container input , textarea{
+    font-size: 16px;
+    height: 48px;
+    border-radius: 12px;
+    outline: none;
+    border: 1px solid var(--grey-500);
+    padding: 12px 12px;
+    color: var(--grey-900);
+}
+
+.input-container label span, legend span{
+    color: var(--green-600);
+}
+
+.last-name-input{
+    margin-top: 24px;
+}
+
+
+.radio-btn-containers{
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.type-container{
+    min-width: 250px;
+    border: 1px solid var(--grey-500);
+    width: 100%;
+    border-radius: 12px;
+    height: 48px;
+}
+
+.type-container label{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 0px 24px;
+    gap: 12px;
+    font-size: 18px;
+}
+
+.type-container label .custom-radio{
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--grey-500);
+    border-radius: 50%;
+    padding: 1px;
+}
+
+.type-container.active label .custom-radio{
+    border: 1px solid transparent;
+    background-image: url(./assets/images/icon-radio-selected.svg);
+    background-position: center;
+}
+
+.type-container label span , label , legend{
+    color: var(--grey-900);
+}
+
+textarea{
+    height: 240px;
+    resize: none;
+}
+
+.checkbox-input{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.custom-checkbox{
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--grey-500);
+    border-radius: 5px;
+}
+
+.checkbox-input.active .custom-checkbox{
+    border: 1px solid transparent;
+    background-image: url(./assets/images/icon-checkbox-check.svg);
+    background-position: center;
+}
+
+.input-container > span{
+    color: var(--red);
+}
+
+.input-container.error input{
+    border: 1px solid var(--red) !important;
+}
+
+
+input:focus,textarea:focus, .type-container:focus, .custom-checkbox:focus{
+    border: 1px solid var(--green-600);
+    outline: 1px solid var(--green-600);   
+}
+
+.type-container.active , .type-container:focus{
+    border: 1px solid var(--green-600);
+    background-color: var(--green-200);
+}
+
+button{
+    width: 100%;
+    height: 48px;
+    font-family: karla;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: var(--green-600);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: hsl(169, 83%, 12%);
 }
 
 
@@ -28,4 +196,28 @@ main{
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media (min-width:700px) {
+    .input-container{
+        width: 100%;
+    }
+
+    .name-input-container fieldset{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .last-name-input{
+        margin-top: 0;
+    }
+
+    .radio-btn-containers{
+        flex-wrap: nowrap;
+    }
+
+    textarea{
+        height: 90px;
+    }
 }
