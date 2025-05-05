@@ -8,6 +8,7 @@
   <title>Frontend Mentor | Contact form</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
+  <script defer src="form-submission.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
               <label for="first-name">First Name <span>*</span> </label>
               <input type="text" name="first-name" id="first-name"
                 autocomplete="first-name" required>
-              <span id="fnerror-msg" hidden>This field is required</span>
+              <span id="fnerror-msg" hidden="false">This field is required</span>
             </div>
 
             <div class="last-name-input input-container">
@@ -41,25 +42,25 @@
         <div class="email-container input-container">
           <label for="email">Email <span>*</span> </label>
           <input type="email" name="email" id="email" autocomplete="email" required>
-          <span id="eerror-msg" hidden>Please enter a valid email address</span>
+          <span id="eerror-msg" hidden>This field is required.</span>
         </div>
 
         <div class="query-type-input-container input-container">
           <fieldset>
             <legend>Query Type <span>*</span></legend>
             <div class="radio-btn-containers">
-              <div class="type-container" tabindex="0" >
+              <div class="type-container" aria-labelledby="ge" tabindex="0" >
                 <label for="general-equity">
                   <div class="custom-radio"></div>
-                  <input type="radio" name="query-type" id="general-equity" value="general-equity" hidden>
-                  <span>General Equity</span>
+                  <input type="radio" name="query-type" id="general-equity" value="general-equity" required hidden>
+                  <span id="ge">General Equity</span>
                 </label>
               </div>
-              <div class="type-container">
+              <div class="type-container" aria-labelledby="sr">
                 <label for="support-request">
                   <div class="custom-radio"></div>
                   <input type="radio" name="query-type" id="support-request" value="support-request" hidden>
-                  <span>Support Request</span>
+                  <span id="sr">Support Request</span>
                 </label>
               </div>
             </div>
@@ -69,15 +70,15 @@
 
         <div class="message-container input-container">
           <label for="message">Message <span>*</span></label>
-          <textarea name="message" id="message" rows="10"></textarea>
+          <textarea name="message" id="message" rows="10" required></textarea>
           <span id="merror-msg" hidden>This field is required</span>
         </div>
 
         <div class="checkbox-container input-container">
           <div class="checkbox-input">
-            <div class="custom-checkbox" tabindex="0"></div>
-            <input type="checkbox" name="check" id="check" hidden>
-            <label for="check">I consent to being contacted by the team <span>*</span></label>
+            <div class="custom-checkbox" aria-label="confirm your consent" aria-describedby="check-label"  tabindex="0"></div>
+            <input type="checkbox" name="check" id="check" required hidden>
+            <label id="check-label" for="check">I consent to being contacted by the team <span>*</span></label>
           </div>
           <span id="cerror-msg" hidden>To submit this form, please consent to being contacted</span>
         </div>
@@ -89,7 +90,11 @@
     </div>
   </main>
 
-
+  <div class="toast-message" role="alert">
+    <strong>Message Sent</strong>
+    <p>Thanks for complete the form. We'll be in touch soon!</p>
+  </div>
+  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
